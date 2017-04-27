@@ -5,16 +5,23 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { WidgetOneComponent } from './widgets/widget-one.component';
+import { WidgetTwoComponent } from './widgets/widget-two.component';
+
+import { ServiceModule } from './services/service.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    WidgetOneComponent,
+    WidgetTwoComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    ServiceModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

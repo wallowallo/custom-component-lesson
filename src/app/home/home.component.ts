@@ -3,7 +3,8 @@ import {WidgetThree} from "../widgets/widget-three.component";
 @Component({
     selector: 'home',
     template: `
-<div #container></div>
+      <button (click)="createInputs()">FOURTH</button>
+      <div #container></div>
 `
 })
 export class HomeComponent{
@@ -26,5 +27,14 @@ export class HomeComponent{
           .createComponent(widgetFactory);
 
         widgetRef.instance.message = "you are not my mate";
+    }
+
+    createInputs() {
+      const widgetFactory = this.resolver.resolveComponentFactory(WidgetThree);
+
+      const widgetRef = this.container
+        .createComponent(widgetFactory, 3);
+
+      widgetRef.instance.message = "Move! I am fourth!";
     }
 }

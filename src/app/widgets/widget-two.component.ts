@@ -4,9 +4,14 @@ import { Component } from '@angular/core';
   selector: 'widget-two',
   template: `
   <h2>above</h2>
-  <ng-content></ng-content>
+  <ng-content select="h2"></ng-content>
+  <ng-content select=".content"></ng-content>
+  <ng-content select="[footer]"></ng-content>
   <h2>below</h2>
   `,
+  //select="[footer]" means select the attribute of footer
+  //select="h2" selects the h2 in the home component
+  //select=".content" selects from class in home component
   styles: [`
     :host{
       display: block;

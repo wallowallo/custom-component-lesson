@@ -12,7 +12,9 @@ import { SimpleService } from '../services/service.module';
 
   <widget-two>
 
-    Some other content!
+    <h2>Title</h2>
+    <div class="content">Some Content</div>
+    <h3 footer>footer</h3>
 
   </widget-two>
   `

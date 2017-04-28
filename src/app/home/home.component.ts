@@ -3,12 +3,16 @@ import {WidgetThree} from "../widgets/widget-three.component";
 @Component({
     selector: 'home',
     template: `
+      <button (click)="move()">Move</button>
       <button (click)="createInputs()">FOURTH</button>
+      <button (click)="delInput()">Delete</button>
       <div #container></div>
 `
 })
 export class HomeComponent{
     @ViewChild('container', {read:ViewContainerRef}) container;
+
+    widgetRef;
 
     constructor(private resolver:ComponentFactoryResolver){}
 
@@ -23,18 +27,33 @@ export class HomeComponent{
         this.container.createComponent(widgetFactory);
         this.container.createComponent(widgetFactory);
         this.container.createComponent(widgetFactory);
-        const widgetRef = this.container
+        this.widgetRef = this.container
           .createComponent(widgetFactory);
 
-        widgetRef.instance.message = "you are not my mate";
+        this.widgetRef.instance.message = "you are not my mate";
     }
 
+    //creating inputs as input nr 4
     createInputs() {
       const widgetFactory = this.resolver.resolveComponentFactory(WidgetThree);
 
-      const widgetRef = this.container
+      const widgetRefFourth = this.container
         .createComponent(widgetFactory, 3);
 
-      widgetRef.instance.message = "Move! I am fourth!";
+      widgetRefFourth.instance.message = "Move! I am fourth!";
+    }
+
+    //moving inputs to a random index
+    move() {
+      const randomIndex = Math.floor(Math.random() * this.container.length);
+
+      this.container.move(this.widgetRef.hostView, randomIndex);
+    }
+
+    //deleting inputs with random index
+    delInput() {
+      const randomIndex = Math.floor(Math.random() * this.container.length);
+
+      this.container.detach(randomIndex);
     }
 }

@@ -6,11 +6,20 @@ import {WidgetThree} from "../widgets/widget-three.component";
       <button (click)="move()">Move</button>
       <button (click)="createInputs()">FOURTH</button>
       <button (click)="delInput()">Delete</button>
+      <button (click)="templateCreate()">Template Creater</button>
       <div #container></div>
+
+
+      <template #template>
+        <h2>My amazing template</h2>
+        <button>My amazing button</button>
+      </template>
 `
 })
 export class HomeComponent{
     @ViewChild('container', {read:ViewContainerRef}) container;
+
+    @ViewChild('template') template;
 
     widgetRef;
 
@@ -55,5 +64,9 @@ export class HomeComponent{
       const randomIndex = Math.floor(Math.random() * this.container.length);
 
       this.container.detach(randomIndex);
+    }
+
+    templateCreate() {
+      this.container.createEmbeddedView(this.template);
     }
 }

@@ -22,6 +22,9 @@ export class HomeComponent{
         this.container.createComponent(widgetFactory);
         this.container.createComponent(widgetFactory);
         this.container.createComponent(widgetFactory);
-        this.container.createComponent(widgetFactory);
+        const widgetRef = this.container
+          .createComponent(widgetFactory);
+
+        widgetRef.instance.message = "you are not my mate";
     }
 }

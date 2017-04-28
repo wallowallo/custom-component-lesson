@@ -10,9 +10,9 @@ import {WidgetThree} from "../widgets/widget-three.component";
       <div #container></div>
 
 
-      <template #template>
-        <h2>My amazing template</h2>
-        <button>My amazing button</button>
+      <template #template let-description="description">
+        <h2>{{description}} My amazing template</h2>
+        <button>{{description}} My amazing button</button>
       </template>
 `
 })
@@ -67,6 +67,8 @@ export class HomeComponent{
     }
 
     templateCreate() {
-      this.container.createEmbeddedView(this.template);
+      this.container.createEmbeddedView(this.template, {
+        description: 'Sweet'
+      });
     }
 }

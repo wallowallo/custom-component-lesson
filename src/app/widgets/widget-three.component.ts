@@ -1,27 +1,20 @@
-import { Component, ViewChild, Renderer } from '@angular/core';
-
+import {Component, ViewChild, Renderer} from "@angular/core";
 @Component({
-  selector: 'widget-three',
-  //styles with :host only applies to the specific component
-  styles: [`
-
-    `],
-  template: `
-  <input #input type="text">
-  <!-- <widget-one></widget-one> -->
-  `
+    selector: 'widget-three',
+    template: `
+<input #input type="text">
+`
 })
-export class WidgetThreeComponent {
-  @ViewChild('input') input;
-  //@ViewChild(WidgetOne) to access widget one
+export class WidgetThree{
+    @ViewChild('input') input;
 
-  constructor(private renderer: Renderer) {}
+    constructor(private renderer:Renderer){}
 
-  ngAfterViewInit() {
-    console.log(this.input);
-    this.renderer.invokeElementMethod(
-      this.input.nativeElement,
-      'focus'
-    );
-  }
+    ngAfterViewInit(){
+        this.renderer.invokeElementMethod(
+            this.input.nativeElement,
+            'focus',
+            []
+        );
+    }
 }

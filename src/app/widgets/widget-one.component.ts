@@ -1,19 +1,18 @@
-import { Component, Input } from '@angular/core';
-
+import {Component, Input} from "@angular/core";
 @Component({
-  selector: 'widget-one',
-  styles: [`
-    :host{
-      display: block;
-      border: 3px dashed black;
-      font-family: 'Arial';
-    }
-    `],
-  template: `
-  <h2>Ones message</h2>
-  <h3>{{message}}</h3>
-  `
+    selector: 'widget-one',
+    styles:[`
+:host{
+    display: block;
+    border: 3px dashed black;
+    font-family: "Times New Roman";
+}
+`],
+    template: `
+<h2>One's message:</h2>
+<h3>{{message}}</h3>
+`
 })
-export class WidgetOneComponent {
-  @Input() message;
+export class WidgetOne{
+    @Input() message;
 }

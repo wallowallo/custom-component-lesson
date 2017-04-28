@@ -17,6 +17,8 @@ import { SimpleService } from '../services/service.module';
     <h3 footer>footer</h3>
 
   </widget-two>
+
+  <widget-three></widget-three>
   `
 })
 export class HomeComponent {

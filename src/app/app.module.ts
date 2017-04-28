@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { WidgetOneComponent } from './widgets/widget-one.component';
 import { WidgetTwoComponent } from './widgets/widget-two.component';
+import { WidgetThreeComponent } from './widgets/widget-three.component';
 
 import { ServiceModule } from './services/service.module';
 
@@ -15,7 +16,8 @@ import { ServiceModule } from './services/service.module';
     AppComponent,
     HomeComponent,
     WidgetOneComponent,
-    WidgetTwoComponent
+    WidgetTwoComponent,
+    WidgetThreeComponent
   ],
   imports: [
     BrowserModule,
